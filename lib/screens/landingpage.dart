@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_personal/components/clock.dart';
-import 'package:portfolio_personal/screens/aboutpage.dart';
-import 'package:portfolio_personal/screens/awardspage.dart';
-import 'package:portfolio_personal/screens/devicepage.dart';
-import 'package:portfolio_personal/screens/gallery.dart';
-import 'package:portfolio_personal/screens/projects.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../components/clock.dart';
+import '../screens/aboutpage.dart';
+import '../screens/awardspage.dart';
+import '../screens/gallery.dart';
+import '../screens/projects.dart';
 
 Uri github = Uri.parse('https://github.com/Thushar2103');
 Uri linkedin = Uri.parse('https://www.linkedin.com/in/thushar-t-3a25a9292/');

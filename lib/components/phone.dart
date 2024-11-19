@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio_personal/screens/aboutpage.dart';
-import 'package:portfolio_personal/screens/landingpage.dart';
+import '../screens/aboutpage.dart';
+import '../screens/landingpage.dart';
 import 'package:intl/intl.dart';
 
 class PhoneMockup extends StatefulWidget {

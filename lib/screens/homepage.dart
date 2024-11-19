@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_personal/components/rightcontent.dart';
+import '../components/rightcontent.dart';
 import '../components/phone.dart';
 
 class Homepage extends StatelessWidget {

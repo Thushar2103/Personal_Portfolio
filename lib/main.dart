@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_personal/components/phone.dart';
 
 import 'screens/homepage.dart';
 
