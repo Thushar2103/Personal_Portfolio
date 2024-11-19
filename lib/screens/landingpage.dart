@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_personal/components/clock.dart';
 import 'package:portfolio_personal/screens/aboutpage.dart';
+import 'package:portfolio_personal/screens/awardspage.dart';
 import 'package:portfolio_personal/screens/devicepage.dart';
 import 'package:portfolio_personal/screens/gallery.dart';
 import 'package:portfolio_personal/screens/projects.dart';
@@ -61,7 +62,11 @@ class AppIconItem extends StatelessWidget {
     List<Map<String, dynamic>> appData = [
       {"icon": Icons.person, "name": "About", "screen": Aboutpage()},
       {"icon": Icons.edit, "name": "Projects", "screen": ProjectsPage()},
-      {"icon": FontAwesomeIcons.medal, "name": "Awards", "screen": Aboutpage()},
+      {
+        "icon": FontAwesomeIcons.medal,
+        "name": "Awards",
+        "screen": Awardspage()
+      },
       {"icon": Icons.photo, "name": "Gallery", "screen": Gallery()},
       {"icon": Icons.contact_mail_rounded, "name": "Contact", "url": contact},
       {"icon": FontAwesomeIcons.github, "name": "Github", "url": github},
@@ -96,41 +101,30 @@ class AppIconItem extends StatelessWidget {
           );
         }
       },
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: Card(
-                color: Color(0xFFD1C4E9),
-                child: Padding(
-                  padding: EdgeInsets.all(!app.containsKey("image") ? 6 : 0),
-                  child: app.containsKey("image")
-                      ? Image.asset(
-                          app["image"],
-                          height: 42,
-                          width: 42,
-                          fit: BoxFit.cover,
-                        )
-                      : Icon(
-                          app["icon"],
-                          size: 30,
-                        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Card(
+              color: Color(0xFFD1C4E9),
+              child: Padding(
+                padding: EdgeInsets.all(6),
+                child: Icon(
+                  app["icon"],
+                  size: 35,
                 ),
               ),
             ),
-            Text(
-              app["name"],
-              softWrap: true,
-              style: TextStyle(
-                  // fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ],
-        ),
+          ),
+          Text(
+            app["name"],
+            softWrap: true,
+            style: TextStyle(
+                fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ],
       ),
     );
   }

@@ -5,42 +5,50 @@ import '../components/phone.dart';
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
+  Widget phone() {
+    return Center(
+      child: Flexible(
+        child: PhoneMockup(),
+      ),
+    );
+  }
+
+  Widget pc() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        SizedBox(
+          width: 15,
+        ),
+        Flexible(
+          child: PhoneMockup(),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          child: Rightcontent(),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    bool isMobile = screenWidth < 700;
     return Scaffold(
-      // backgroundColor:
-      //     const Color.fromARGB(255, 27, 26, 26),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF1C2B36),
-              Color(0xFF3E4A61),
-              Color(0xFF5F6383),
-            ],
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF1C2B36),
+                Color(0xFF3E4A61),
+                Color(0xFF5F6383),
+              ],
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceEvenly, // Center the children horizontally
-          children: [
-            SizedBox(
-              width: 15,
-            ),
-            // Use Flexible to maintain the PhoneMockup size
-            Flexible(
-              child: PhoneMockup(), // Keeps its fixed width and height
-            ),
-            // Use Expanded to take the remaining space
-            SizedBox(width: 10),
-            Expanded(
-              child: Rightcontent(),
-            ),
-          ],
-        ),
-      ),
+          child: isMobile ? phone() : pc()),
     );
   }
 }
