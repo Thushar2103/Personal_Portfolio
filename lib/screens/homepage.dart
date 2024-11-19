@@ -7,9 +7,7 @@ class Homepage extends StatelessWidget {
 
   Widget phone() {
     return Center(
-      child: Flexible(
-        child: PhoneMockup(),
-      ),
+      child: PhoneMockup(),
     );
   }
 
