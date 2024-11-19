@@ -30,6 +30,7 @@ class Landingpage extends StatelessWidget {
           DigitalClockCard(),
           Expanded(
             child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 crossAxisSpacing: 0,
