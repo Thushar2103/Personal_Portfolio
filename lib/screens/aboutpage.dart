@@ -28,7 +28,6 @@ class Aboutpage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
       ),
       child: SingleChildScrollView(
         child: Padding(

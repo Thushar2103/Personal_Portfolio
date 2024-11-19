@@ -43,7 +43,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
       decoration: BoxDecoration(
         color: Colors.black,
         border: Border.all(width: 10),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
@@ -56,33 +56,23 @@ class _PhoneMockupState extends State<PhoneMockup> {
       child: Stack(
         children: [
           Positioned.fill(
-            // child: Container(
-            //   decoration: BoxDecoration(
-            //     color: Colors.grey[350],
-            //     image: DecorationImage(
-            //         image: AssetImage("assets/wallpaper.jpg"),
-            //         fit: BoxFit.cover),
-            //     borderRadius: BorderRadius.circular(25),
-            //   ),
-            //   // child: Center(
-            //   //   child: Text('Hello Test'),
-            //   // ),
-            //   child: Landingpage(),
-            // ),
-            child: Navigator(
-              onGenerateRoute: (settings) {
-                // Navigate to different screens based on the tapped icon
-                if (settings.name == '/about') {
-                  return MaterialPageRoute(builder: (_) => Aboutpage());
-                } else if (settings.name == '/contact') {
-                  // return MaterialPageRoute(builder: (_) => ContactPage());
-                } else if (settings.name == '/photos') {
-                  // return MaterialPageRoute(builder: (_) => PhotosPage());
-                } else {
-                  return MaterialPageRoute(builder: (_) => Landingpage());
-                }
-                return null;
-              },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Navigator(
+                onGenerateRoute: (settings) {
+                  // Navigate to different screens based on the tapped icon
+                  if (settings.name == '/about') {
+                    return MaterialPageRoute(builder: (_) => Aboutpage());
+                  } else if (settings.name == '/contact') {
+                    // return MaterialPageRoute(builder: (_) => ContactPage());
+                  } else if (settings.name == '/photos') {
+                    // return MaterialPageRoute(builder: (_) => PhotosPage());
+                  } else {
+                    return MaterialPageRoute(builder: (_) => Landingpage());
+                  }
+                  return null;
+                },
+              ),
             ),
           ),
           Positioned(

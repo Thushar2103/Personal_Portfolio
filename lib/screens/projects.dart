@@ -1,37 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Uri nilam = Uri.parse('https://tascuit-nilam.onrender.com');
+Uri manage = Uri.parse('https://tascuit-manage.onrender.com');
+Uri expense = Uri.parse(
+    'https://play.google.com/store/apps/details?id=com.tascuit.expense');
+Uri puzzle = Uri.parse('https://github.com/Thushar2103/Unsplash-Puzzle-Game');
 
 class ProjectsPage extends StatelessWidget {
   ProjectsPage({super.key});
 
-  final List<Map<String, String>> projects = [
+  final List<Map<String, dynamic>> projects = [
     {
       'title': 'Tascuit Nilam',
       'content':
-          'Add and format text, images, and links using a simple editor, which automatically generates HTML for publishing.'
+          'Add and format text, images, and links using a simple editor, which automatically generates HTML for publishing.',
+      'url': nilam
     },
     {
       'title': 'Tascuit Expense',
       'content':
           'Create and manage personalized categories to track specific spending habits. View detailed monthly reports of your financial trends and adjust your budget.',
+      'url': expense
     },
     {
       'title': 'Manage (Task Reminder)',
       'content':
           'A local task management app that lets you create, track, and organize tasks efficiently. Includes to-do lists and sticky notes for better task management.',
+      'url': manage
     },
     {
       'title': 'Random Image Puzzle Game',
       'content':
           'Use the Unsplash API to fetch a random image for each puzzle, providing a unique experience every time.',
+      'url': puzzle
     },
   ];
+
+  Future<void> _launchUrl(Uri _url) async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -78,7 +94,7 @@ class ProjectsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            project['title']!, // Title of the project
+                            project['title']!,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -86,8 +102,7 @@ class ProjectsPage extends StatelessWidget {
                           ),
                           SizedBox(height: 5),
                           Text(
-                            project[
-                                'content']!, // Trim whitespace and show each point
+                            project['content']!,
                             style: TextStyle(
                               fontSize: 13,
                             ),
@@ -96,7 +111,10 @@ class ProjectsPage extends StatelessWidget {
                           SizedBox(
                             width: double.maxFinite,
                             child: ElevatedButton(
-                                onPressed: () {}, child: Text('Visit Site')),
+                                onPressed: () {
+                                  launchUrl(project['url']);
+                                },
+                                child: Text('Visit Site')),
                           ),
                           Spacer(),
                         ],

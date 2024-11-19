@@ -3,43 +3,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_personal/components/clock.dart';
 import 'package:portfolio_personal/screens/aboutpage.dart';
 import 'package:portfolio_personal/screens/devicepage.dart';
+import 'package:portfolio_personal/screens/gallery.dart';
 import 'package:portfolio_personal/screens/projects.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Uri github = Uri.parse('https://github.com/Thushar2103');
 Uri linkedin = Uri.parse('https://www.linkedin.com/in/thushar-t-3a25a9292/');
-Uri expense = Uri.parse(
-    'https://play.google.com/store/apps/details?id=com.tascuit.expense');
 Uri contact = Uri.parse('https://contact-form-j5vq.onrender.com/');
+Uri playstore =
+    Uri.parse('https://play.google.com/store/apps/developer?id=Tascuit');
 
 class Landingpage extends StatelessWidget {
   const Landingpage({super.key});
-
-  void _showClockDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Current Time'),
-          content: DigitalClockCard(), // The clock widget you are using
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Close'),
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
           image: DecorationImage(
               image: AssetImage("assets/wallpaper.jpg"), fit: BoxFit.cover)),
       child: Column(
@@ -47,11 +27,7 @@ class Landingpage extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          GestureDetector(
-              onTap: () {
-                _showClockDialog(context);
-              },
-              child: DigitalClockCard()),
+          DigitalClockCard(),
           Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -59,7 +35,7 @@ class Landingpage extends StatelessWidget {
                 crossAxisSpacing: 0,
                 mainAxisSpacing: 10,
               ),
-              itemCount: 7,
+              itemCount: 8,
               itemBuilder: (context, index) {
                 return AppIconItem(index: index);
               },
@@ -85,12 +61,17 @@ class AppIconItem extends StatelessWidget {
     List<Map<String, dynamic>> appData = [
       {"icon": Icons.person, "name": "About", "screen": Aboutpage()},
       {"icon": Icons.edit, "name": "Projects", "screen": ProjectsPage()},
+      {"icon": FontAwesomeIcons.medal, "name": "Awards", "screen": Aboutpage()},
+      {"icon": Icons.photo, "name": "Gallery", "screen": Gallery()},
       {"icon": Icons.contact_mail_rounded, "name": "Contact", "url": contact},
       {"icon": FontAwesomeIcons.github, "name": "Github", "url": github},
       {"icon": FontAwesomeIcons.linkedin, "name": "LinkedIn", "url": linkedin},
       // {"icon": Icons.phone_android, "name": "Device", "screen": Devicepage()},
-      {"icon": FontAwesomeIcons.medal, "name": "Awards", "screen": Aboutpage()},
-      {"image": "assets/expense.png", "name": "Expense", "url": expense},
+      {
+        "icon": FontAwesomeIcons.googlePlay,
+        "name": "Play Store",
+        "url": playstore
+      },
       // {"icon": FontAwesomeIcons.medal, "name": "Awards", "screen": Aboutpage()},
     ];
 

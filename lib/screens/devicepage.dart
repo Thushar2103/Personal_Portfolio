@@ -8,7 +8,6 @@ class Devicepage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
