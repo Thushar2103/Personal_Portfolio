@@ -4,11 +4,11 @@ class Gallery extends StatelessWidget {
   Gallery({super.key});
 
   final List<String> imageUrls = [
-    'assets/1.jpg',
-    'assets/2.jpg',
-    'assets/3.jpg',
-    'assets/4.jpg',
-    'assets/5.jpg',
+    'image/1.jpg',
+    'image/2.jpg',
+    'image/3.jpg',
+    'image/4.jpg',
+    'image/5.jpg',
     // 'https://lh3.googleusercontent.com/d/AKGpihbg8E41-L7H5vGmD6rGVoqdBTUbckzwPOfTNRD3yWyrSd2_MqiLuAOz6E-pMvpx1CLlBVAK0pMMXKAuu0RqT_yST5ydFD4nqfA=w1000',
     // 'https://drive.google.com/drive-viewer/AKGpihYFze198AGjs29XGBDzBHjpdez6zkWOvuCE8KyLP9dhczV56zUsHL8kpmIeEYRFboqmi6JcIOzsq38rO1LrMcfYSy6VnW_EwJU=s1600-rw-v1',
     // 'https://drive.google.com/uc?id=AKGpihbg8E41-L7H5vGmD6rGVoqdBTUbckzwPOfTNRD3yWyrSd2_MqiLuAOz6E-pMvpx1CLlBVAK0pMMXKAuu0RqT_yST5ydFD4nqfA',

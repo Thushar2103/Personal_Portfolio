@@ -91,7 +91,7 @@ class Aboutpage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            "assets/me.JPG",
+                            "image/me.JPG",
                             fit: BoxFit.cover,
                           ),
                         ),
