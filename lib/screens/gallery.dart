@@ -9,13 +9,13 @@ class Gallery extends StatelessWidget {
     'image/3.jpg',
     'image/4.jpg',
     'image/5.jpg',
-    // 'https://lh3.googleusercontent.com/d/AKGpihbg8E41-L7H5vGmD6rGVoqdBTUbckzwPOfTNRD3yWyrSd2_MqiLuAOz6E-pMvpx1CLlBVAK0pMMXKAuu0RqT_yST5ydFD4nqfA=w1000',
-    // 'https://drive.google.com/drive-viewer/AKGpihYFze198AGjs29XGBDzBHjpdez6zkWOvuCE8KyLP9dhczV56zUsHL8kpmIeEYRFboqmi6JcIOzsq38rO1LrMcfYSy6VnW_EwJU=s1600-rw-v1',
-    // 'https://drive.google.com/uc?id=AKGpihbg8E41-L7H5vGmD6rGVoqdBTUbckzwPOfTNRD3yWyrSd2_MqiLuAOz6E-pMvpx1CLlBVAK0pMMXKAuu0RqT_yST5ydFD4nqfA',
-    // 'https://drive.google.com/uc?id=AKGpihaZTOzLgSdHesKPNOHZi6ZqOIOH4VgCmZ-uqQ6MUMRo_YN-7YSkUpSBC3Ip5ZLECtwIKKU-JH4Ry9LbJXmu5nRpa8MoMdEC-Q',
-    // 'https://drive.google.com/uc?id=AKGpihYFze198AGjs29XGBDzBHjpdez6zkWOvuCE8KyLP9dhczV56zUsHL8kpmIeEYRFboqmi6JcIOzsq38rO1LrMcfYSy6VnW_EwJU',
-    // 'https://drive.google.com/uc?id=AKGpihbjCe7Cz4OKNTT_Xy9PaHS6dGK76nwWsEvuQk6k7VpzIFIwCIBjwMGBA-FHcq6NXPlXZPX7zCrzotAEJ00C_XY1kJILxgdh8WI',
+    // Add other image URLs if needed
   ];
+
+  // This function simulates loading an image from an asset
+  Future<void> loadImage(String imagePath) async {
+    await Future.delayed(Duration(seconds: 2)); // Simulating image load delay
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,21 +72,51 @@ class Gallery extends StatelessWidget {
                           ),
                           content: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              imageUrls[index],
-                              fit: BoxFit.cover,
+                            child: FutureBuilder<void>(
+                              future:
+                                  loadImage(imageUrls[index]), // Loading image
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  // While image is loading
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                } else if (snapshot.hasError) {
+                                  return Center(
+                                      child: Text('Error loading image'));
+                                } else {
+                                  return Image.asset(
+                                    imageUrls[index],
+                                    fit: BoxFit.cover,
+                                  );
+                                }
+                              },
                             ),
-                            // child: NetworkImage(imageUrls[index]),
                           ),
                         ),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          imageUrls[index],
-                          fit: BoxFit.cover,
+                        child: FutureBuilder<void>(
+                          future: loadImage(imageUrls[index]), // Loading image
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              // While image is loading
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else if (snapshot.hasError) {
+                              return Center(child: Text('Error loading image'));
+                            } else {
+                              return Image.asset(
+                                imageUrls[index],
+                                fit: BoxFit.cover,
+                              );
+                            }
+                          },
                         ),
-                        // child: NetworkImage(imageUrls[index]),
                       ),
                     ),
                   );
