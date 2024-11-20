@@ -57,7 +57,7 @@ class _AwardspageState extends State<Awardspage> {
                   icon: Icon(Icons.arrow_back_ios_new),
                 ),
                 SizedBox(
-                  width: 55,
+                  width: 50,
                 ),
                 Text(
                   'Awards',

@@ -28,7 +28,7 @@ class Gallery extends StatelessWidget {
                   icon: Icon(Icons.arrow_back_ios_new),
                 ),
                 SizedBox(
-                  width: 55,
+                  width: 50,
                 ),
                 Text(
                   'Gallery',

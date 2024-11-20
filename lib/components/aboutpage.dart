@@ -48,7 +48,7 @@ class Aboutpage extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                   icon: Icon(Icons.arrow_back_ios_new),
                 ),
-                SizedBox(width: 58),
+                SizedBox(width: 50),
                 Text(
                   'About',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
