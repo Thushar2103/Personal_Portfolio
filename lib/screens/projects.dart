@@ -78,7 +78,7 @@ class ProjectsPage extends StatelessWidget {
                   final project = projects[index];
 
                   return Card(
-                    color: Color(0xFFD1C4E9),
+                    color: Color(0xFFD1F8E3),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(width: 4),
                       borderRadius: BorderRadius.circular(5),
@@ -91,8 +91,8 @@ class ProjectsPage extends StatelessWidget {
                           Text(
                             project['title']!,
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                           SizedBox(height: 5),
@@ -100,8 +100,7 @@ class ProjectsPage extends StatelessWidget {
                             textAlign: TextAlign.justify,
                             project['content']!,
                             style: TextStyle(
-                              fontSize: 13,
-                            ),
+                                fontSize: 12, fontWeight: FontWeight.w500),
                           ),
                           Spacer(),
                           SizedBox(
