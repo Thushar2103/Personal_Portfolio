@@ -130,6 +130,7 @@ class Aboutpage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
+                          textAlign: TextAlign.justify,
                           "I'm a software tester with experience in Flutter development, building reliable, high-quality apps. When I'm not testing or coding, I enjoy travelling and finding new inspiration from different places.",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -155,26 +156,13 @@ class Aboutpage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Selenium",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.9,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
                               "Flutter",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             LinearPercentIndicator(
                               lineHeight: 25,
-                              percent: 0.7,
+                              percent: 0.8,
                               backgroundColor: Colors.grey[300]!,
                               progressColor: Colors.green,
                               barRadius: Radius.circular(5),
