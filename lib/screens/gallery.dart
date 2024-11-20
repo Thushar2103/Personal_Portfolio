@@ -12,11 +12,6 @@ class Gallery extends StatelessWidget {
     // Add other image URLs if needed
   ];
 
-  // This function simulates loading an image from an asset
-  Future<void> loadImage(String imagePath) async {
-    await Future.delayed(Duration(seconds: 2)); // Simulating image load delay
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,73 +48,48 @@ class Gallery extends StatelessWidget {
                 itemCount: imageUrls.length,
                 itemBuilder: (context, index) {
                   return MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: GestureDetector(
-                      onTap: () => showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          title: ListTile(
-                            title: Text(
-                              'View Image',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            leading: IconButton(
-                                iconSize: 20,
-                                onPressed: () => Navigator.pop(context),
-                                icon: Icon(Icons.close)),
-                          ),
-                          content: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: FutureBuilder<void>(
-                              future:
-                                  loadImage(imageUrls[index]), // Loading image
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  // While image is loading
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                } else if (snapshot.hasError) {
-                                  return Center(
-                                      child: Text('Error loading image'));
-                                } else {
-                                  return Image.asset(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                          onTap: () => showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5)),
+                                  title: ListTile(
+                                    title: Text(
+                                      'View Image',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    leading: IconButton(
+                                        iconSize: 20,
+                                        onPressed: () => Navigator.pop(context),
+                                        icon: Icon(Icons.close)),
+                                  ),
+                                  content: Image.asset(
                                     imageUrls[index],
                                     fit: BoxFit.cover,
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: FutureBuilder<void>(
-                          future: loadImage(imageUrls[index]), // Loading image
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              // While image is loading
-                              return Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            } else if (snapshot.hasError) {
-                              return Center(child: Text('Error loading image'));
-                            } else {
-                              return Image.asset(
+                                  ),
+                                ),
+                              ),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
                                 imageUrls[index],
                                 fit: BoxFit.cover,
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    ),
-                  );
+                                frameBuilder: (BuildContext context,
+                                    Widget child,
+                                    int? frame,
+                                    bool wasSynchronouslyLoaded) {
+                                  if (frame == null) {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else {
+                                    return child;
+                                  }
+                                },
+                              ))));
                 },
               ),
             ),

@@ -122,7 +122,7 @@ class AppIconItem extends StatelessWidget {
             app["name"],
             softWrap: true,
             style: TextStyle(
-                fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black),
+                fontSize: 8, fontWeight: FontWeight.w900, color: Colors.black),
           ),
         ],
       ),

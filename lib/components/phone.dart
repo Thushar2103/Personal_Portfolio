@@ -38,7 +38,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300.0,
+      width: 290.0,
       height: 570.0,
       decoration: BoxDecoration(
         color: Colors.black,
@@ -63,14 +63,9 @@ class _PhoneMockupState extends State<PhoneMockup> {
                   // Navigate to different screens based on the tapped icon
                   if (settings.name == '/about') {
                     return MaterialPageRoute(builder: (_) => Aboutpage());
-                  } else if (settings.name == '/contact') {
-                    // return MaterialPageRoute(builder: (_) => ContactPage());
-                  } else if (settings.name == '/photos') {
-                    // return MaterialPageRoute(builder: (_) => PhotosPage());
                   } else {
                     return MaterialPageRoute(builder: (_) => Landingpage());
                   }
-                  return null;
                 },
               ),
             ),

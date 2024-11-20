@@ -32,16 +32,10 @@ class ProjectsPage extends StatelessWidget {
     {
       'title': 'Random Image Puzzle Game',
       'content':
-          'Use the Unsplash API to fetch a random image for each puzzle, providing a unique experience every time.',
+          'Unsplash API to fetch a random image for each puzzle, providing a unique experience every time.',
       'url': puzzle
     },
   ];
-
-  Future<void> _launchUrl(Uri _url) async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +70,7 @@ class ProjectsPage extends StatelessWidget {
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.2,
+                    childAspectRatio: 1.1,
                     crossAxisCount: 1,
                     crossAxisSpacing: 0),
                 itemCount: projects.length,
@@ -102,6 +96,7 @@ class ProjectsPage extends StatelessWidget {
                           ),
                           SizedBox(height: 5),
                           Text(
+                            textAlign: TextAlign.justify,
                             project['content']!,
                             style: TextStyle(
                               fontSize: 13,

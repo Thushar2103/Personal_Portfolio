@@ -15,6 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Portfolio',
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.green),
+                    foregroundColor: WidgetStatePropertyAll(Colors.black),
+                    shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)))))),
         home: Homepage());
   }
 }
