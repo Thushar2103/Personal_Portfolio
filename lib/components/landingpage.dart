@@ -12,6 +12,8 @@ Uri linkedin = Uri.parse('https://www.linkedin.com/in/thushar-t-3a25a9292/');
 Uri contact = Uri.parse('https://contact-form-j5vq.onrender.com/');
 Uri playstore =
     Uri.parse('https://play.google.com/store/apps/developer?id=Tascuit');
+Uri resume = Uri.parse(
+    'https://drive.google.com/file/d/12rcOrh-ScNWk-2LJISwOKoRWRj3SJJ5M/view?usp=sharing');
 
 class Landingpage extends StatelessWidget {
   const Landingpage({super.key});
@@ -36,7 +38,7 @@ class Landingpage extends StatelessWidget {
                 crossAxisSpacing: 0,
                 mainAxisSpacing: 10,
               ),
-              itemCount: 8,
+              itemCount: 9,
               itemBuilder: (context, index) {
                 return AppIconItem(index: index);
               },
@@ -68,6 +70,7 @@ class AppIconItem extends StatelessWidget {
         "screen": Awardspage()
       },
       {"icon": Icons.photo, "name": "Gallery", "screen": Gallery()},
+      {"icon": FontAwesomeIcons.file, "name": "Resume", "url": resume},
       {"icon": Icons.contact_mail_rounded, "name": "Contact", "url": contact},
       {"icon": FontAwesomeIcons.github, "name": "Github", "url": github},
       {"icon": FontAwesomeIcons.linkedin, "name": "LinkedIn", "url": linkedin},
