@@ -78,8 +78,9 @@ class ProjectsPage extends StatelessWidget {
                   final project = projects[index];
 
                   return Card(
+                    color: Color(0xFFD1C4E9),
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 0.5),
+                      side: BorderSide(width: 4),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Padding(

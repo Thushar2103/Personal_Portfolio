@@ -9,7 +9,6 @@ class Gallery extends StatelessWidget {
     'image/3.jpg',
     'image/4.jpg',
     'image/5.jpg',
-    // Add other image URLs if needed
   ];
 
   @override
@@ -67,6 +66,7 @@ class Gallery extends StatelessWidget {
                                         icon: Icon(Icons.close)),
                                   ),
                                   content: Image.asset(
+                                    filterQuality: FilterQuality.medium,
                                     imageUrls[index],
                                     fit: BoxFit.cover,
                                   ),
