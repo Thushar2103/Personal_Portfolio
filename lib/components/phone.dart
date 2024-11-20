@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../screens/aboutpage.dart';
-import '../screens/landingpage.dart';
+import 'aboutpage.dart';
+import 'landingpage.dart';
 import 'package:intl/intl.dart';
 
 class PhoneMockup extends StatefulWidget {
@@ -46,10 +46,10 @@ class _PhoneMockupState extends State<PhoneMockup> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black26,
-            spreadRadius: 1,
-            blurRadius: 10,
-            offset: Offset(0, 4),
+            color: Colors.black45,
+            spreadRadius: 2,
+            blurRadius: 15,
+            offset: Offset(10, 10),
           ),
         ],
       ),
