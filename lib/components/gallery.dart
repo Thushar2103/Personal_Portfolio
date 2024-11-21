@@ -4,9 +4,9 @@ class Gallery extends StatelessWidget {
   Gallery({super.key});
 
   final List<String> imageUrls = [
-    'image/1.jpg',
-    'image/2.jpg',
-    'image/3.jpg',
+    'image/1.JPG',
+    'image/2.JPG',
+    'image/3.JPG',
     'image/4.jpg',
     'image/5.jpg',
   ];
@@ -66,7 +66,7 @@ class Gallery extends StatelessWidget {
                                         icon: Icon(Icons.close)),
                                   ),
                                   content: Image.asset(
-                                    filterQuality: FilterQuality.medium,
+                                    filterQuality: FilterQuality.none,
                                     imageUrls[index],
                                     fit: BoxFit.cover,
                                   ),
