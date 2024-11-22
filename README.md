@@ -6,6 +6,9 @@ Welcome to my personal portfolio! This web application is developed using [Flutt
 
 You can view the live demo of my portfolio website here: [Live Demo](https://thushar-portfolio.netlify.app)
 
+## 💻Screenshot
+![Portfolio](screenshot/ss1.png)
+
 ## 🛠️ Installation
 
 To run this project locally, follow these steps:
@@ -16,5 +19,3 @@ To run this project locally, follow these steps:
 - Dart SDK
 - A modern web browser (Chrome, Firefox, etc.)
 
-## 💻Screenshot
-![Portfolio](screenshot/ss1.png)
