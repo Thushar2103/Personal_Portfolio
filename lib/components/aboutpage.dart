@@ -293,6 +293,19 @@ class Aboutpage extends StatelessWidget {
                               padding: EdgeInsets.symmetric(vertical: 7.0),
                             ),
                             Text(
+                              "Appium",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            LinearPercentIndicator(
+                              lineHeight: 25,
+                              percent: 0.8,
+                              backgroundColor: Colors.grey[300]!,
+                              progressColor: Colors.green,
+                              barRadius: Radius.circular(5),
+                              padding: EdgeInsets.symmetric(vertical: 7.0),
+                            ),
+                            Text(
                               "Manual Testing",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
