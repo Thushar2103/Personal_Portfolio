@@ -13,7 +13,7 @@ Uri contact = Uri.parse('https://contact-form-j5vq.onrender.com/');
 Uri playstore =
     Uri.parse('https://play.google.com/store/apps/developer?id=Tascuit');
 Uri resume = Uri.parse(
-    'https://drive.google.com/file/d/12rcOrh-ScNWk-2LJISwOKoRWRj3SJJ5M/view?usp=sharing');
+    'https://drive.google.com/file/d/1Ui4sTKQT-830XQbUHvVG-MsnNVD_dcI2/view?usp=sharing');
 
 class Landingpage extends StatelessWidget {
   const Landingpage({super.key});
