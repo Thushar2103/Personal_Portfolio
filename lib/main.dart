@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Portfolio',
+        title: 'Thushar',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             elevatedButtonTheme: ElevatedButtonThemeData(
