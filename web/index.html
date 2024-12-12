@@ -31,8 +31,102 @@
 
   <title>Thushar</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .boot-screen {
+      text-align: center;
+      color: white;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: radial-gradient(circle, #4caf50 60%, black 100%);
+      position: relative;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px 5px rgba(76, 175, 80, 0.7);
+      }
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0.5);
+      }
+    }
+
+    .text {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4caf50;
+      opacity: 0;
+      animation: fadeIn 3s 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .loading-bar {
+      margin: 20px auto 0;
+      width: 80%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .loading-bar::before {
+      content: '';
+      position: absolute;
+      width: 30%;
+      height: 100%;
+      background: #4caf50;
+      animation: loading 3s infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        left: -30%;
+      }
+      50% {
+        left: 100%;
+      }
+      100% {
+        left: -30%;
+      }
+    }
+  </style>
+
 </head>
 <body>
+  <div class="boot-screen">
+    <div class="logo"></div>
+    <div class="text">Booting Portfolio...</div>
+    <div class="loading-bar"></div>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
