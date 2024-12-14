@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'aboutpage.dart';
 import 'landingpage.dart';
@@ -37,23 +37,9 @@ class _PhoneMockupState extends State<PhoneMockup> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 290.0,
-      height: 570.0,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        border: Border.all(width: 10),
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black45,
-            spreadRadius: 2,
-            blurRadius: 15,
-            offset: Offset(10, 10),
-          ),
-        ],
-      ),
-      child: Stack(
+    return DeviceFrame(
+      device: Devices.ios.iPhone12Mini,
+      screen: Stack(
         children: [
           Positioned.fill(
             child: ClipRRect(
@@ -81,35 +67,38 @@ class _PhoneMockupState extends State<PhoneMockup> {
             ),
           ),
           Positioned(
-            top: 6,
-            left: 20,
+            top: 10,
+            left: 26,
             child: Text(
               time,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
             ),
           ),
           Positioned(
-            top: 6,
-            right: 20,
+            top: 10,
+            right: 30,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
-                  Icons.battery_6_bar_outlined, size: 17,
-                  // color: Colors.white,
+                Transform.rotate(
+                  angle: 90 * (3.14159265359 / 180),
+                  child: Icon(
+                    Icons.battery_6_bar_outlined,
+                    size: 25,
+                  ),
                 ),
-                SizedBox(width: 1),
-                Text(
-                  '90%', // Show battery percentage
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                // SizedBox(width: 1),
+                // Text(
+                //   '90%', // Show battery percentage
+                //   style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
+                // ),
               ],
             ),
           ),
           Positioned(
             bottom: 5,
-            left: 70,
-            right: 70,
+            left: 90,
+            right: 90,
             child: Container(
               height: 5,
               width: 10,

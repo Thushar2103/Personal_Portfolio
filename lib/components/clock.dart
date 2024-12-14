@@ -50,29 +50,32 @@ class _DigitalClockCardState extends State<DigitalClockCard> {
       margin: EdgeInsets.all(15),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            children: [
-              Text(
-                _time,
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              Divider(
-                height: 5,
-                indent: 30,
-                endIndent: 30,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              _time,
+              style: TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.w900,
                 color: Colors.black,
               ),
-              Text(
-                DateFormat('EEEE - dd/M/yy').format(DateTime.now()),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ],
-          ),
+            ),
+            Divider(
+              height: 0,
+              indent: 50,
+              endIndent: 50,
+              color: Colors.black,
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              DateFormat('EEEE - dd/M/yy').format(DateTime.now()),
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15),
+            )
+          ],
         ),
       ),
     );

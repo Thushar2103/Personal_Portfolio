@@ -49,28 +49,34 @@ class ProjectsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 18),
-            Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.start, // Align back button to the left
+            SizedBox(height: 30),
+            Stack(
               children: [
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios_new),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.arrow_back_ios_new),
+                  ),
                 ),
-                SizedBox(
-                  width: 50,
-                ),
-                Text(
-                  'Projects',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Align(
+                  heightFactor: 1.5,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Projects',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
             Expanded(
               child: GridView.builder(
+                physics: ClampingScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.1,
+                    childAspectRatio: 1.8,
                     crossAxisCount: 1,
                     crossAxisSpacing: 0),
                 itemCount: projects.length,

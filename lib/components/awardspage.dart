@@ -48,34 +48,42 @@ class _AwardspageState extends State<Awardspage> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(height: 18),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+            SizedBox(height: 30),
+            Stack(
               children: [
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios_new),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.arrow_back_ios_new),
+                  ),
                 ),
-                SizedBox(
-                  width: 50,
-                ),
-                Text(
-                  'Awards',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Align(
+                  heightFactor: 1.5,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Awards',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
             Expanded(
               child: SingleChildScrollView(
+                physics: ClampingScrollPhysics(),
                 child: Column(
                   children: [
                     Text(
                       'India Book Of Records',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     SizedBox(
                         width: double.maxFinite,
-                        height: 200,
+                        height: 230,
                         child: Card(
                           elevation: 0,
                           color: Colors.transparent,
@@ -112,8 +120,8 @@ class _AwardspageState extends State<Awardspage> {
                               Align(
                                 alignment: AlignmentDirectional.bottomCenter,
                                 child: Container(
-                                  width: 120,
-                                  height: 120,
+                                  width: 160,
+                                  height: 160,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(

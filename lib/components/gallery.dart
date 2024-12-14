@@ -19,25 +19,32 @@ class Gallery extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(height: 18),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+            SizedBox(height: 30),
+            Stack(
               children: [
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios_new),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.arrow_back_ios_new),
+                  ),
                 ),
-                SizedBox(
-                  width: 50,
-                ),
-                Text(
-                  'Gallery',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Align(
+                  heightFactor: 1.5,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Gallery',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
             Expanded(
               child: GridView.builder(
+                physics: ClampingScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   crossAxisSpacing: 10.0,

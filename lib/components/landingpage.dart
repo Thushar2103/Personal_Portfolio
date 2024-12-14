@@ -27,16 +27,20 @@ class Landingpage extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 40,
+            height: 80,
           ),
-          DigitalClockCard(),
-          Expanded(
+          SizedBox(height: 200, child: DigitalClockCard()),
+          Text(
+            'Clock Widget',
+            style: TextStyle(fontWeight: FontWeight.w900),
+          ),
+          Flexible(
             child: GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 crossAxisSpacing: 0,
-                mainAxisSpacing: 10,
+                mainAxisSpacing: 20,
               ),
               itemCount: 9,
               itemBuilder: (context, index) {
@@ -116,7 +120,7 @@ class AppIconItem extends StatelessWidget {
                 padding: EdgeInsets.all(6),
                 child: Icon(
                   app["icon"],
-                  size: 35,
+                  size: 50,
                 ),
               ),
             ),
@@ -125,7 +129,7 @@ class AppIconItem extends StatelessWidget {
             app["name"],
             softWrap: true,
             style: TextStyle(
-                fontSize: 8, fontWeight: FontWeight.w900, color: Colors.black),
+                fontSize: 15, fontWeight: FontWeight.w900, color: Colors.black),
           ),
         ],
       ),

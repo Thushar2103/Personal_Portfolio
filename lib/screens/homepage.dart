@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_personal/components/landingpage.dart';
+
 import 'package:url_launcher/url_launcher.dart';
-import '../components/rightcontent.dart';
+
+import '../components/landingpage.dart';
 import '../components/phone.dart';
+import '../components/rightcontent.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -16,7 +18,10 @@ class Homepage extends StatelessWidget {
 
   Widget phone() {
     return Center(
-      child: PhoneMockup(),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: PhoneMockup(),
+      ),
     );
   }
 
@@ -24,14 +29,31 @@ class Homepage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SizedBox(
-          width: 15,
-        ),
         Flexible(
-          child: PhoneMockup(),
+          // child: DevicePreview(
+          //   isToolbarVisible: false,
+          //   backgroundColor: Colors.black,
+          //   enabled: true, // Enable the Device Preview
+          //   tools: const [...DevicePreview.defaultTools],
+          //   builder: (context) => Navigator(
+          //     onGenerateRoute: (settings) {
+          //       // Navigate to different screens based on the tapped icon
+          //       if (settings.name == '/about') {
+          //         return MaterialPageRoute(builder: (_) => Aboutpage());
+          //       } else {
+          //         return MaterialPageRoute(builder: (_) => Landingpage());
+          //       }
+          //     },
+          //   ),
+          // ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: PhoneMockup(),
+          ),
         ),
-        SizedBox(width: 10),
-        Expanded(
+        const SizedBox(width: 10),
+        const Expanded(
+          flex: 1,
           child: Rightcontent(),
         ),
       ],
@@ -55,6 +77,7 @@ class Homepage extends StatelessWidget {
               ],
             ),
           ),
+          // color: Colors.black),
           child: isMobile ? phone() : pc()),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: !isMobile

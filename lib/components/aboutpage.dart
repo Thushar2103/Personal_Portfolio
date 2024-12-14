@@ -40,23 +40,33 @@ class Aboutpage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 18,
+              height: 30,
             ),
-            Row(
+            Stack(
               children: [
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.arrow_back_ios_new),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.arrow_back_ios_new),
+                  ),
                 ),
-                SizedBox(width: 50),
-                Text(
-                  'About',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Align(
+                  heightFactor: 1.5,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'About',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
             Expanded(
               child: SingleChildScrollView(
+                physics: ClampingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +78,8 @@ class Aboutpage extends StatelessWidget {
                       color: Colors.transparent,
                       child: Stack(children: [
                         Card(
-                          margin: EdgeInsets.only(right: 15, top: 15, left: 5),
+                          margin: EdgeInsets.only(
+                              right: 70, top: 10, left: 5, bottom: 10),
                           shape: ContinuousRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                               side: BorderSide(width: 4)),
@@ -94,10 +105,10 @@ class Aboutpage extends StatelessWidget {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional.topEnd,
+                          alignment: AlignmentDirectional.centerEnd,
                           child: Container(
-                            width: 100,
-                            height: 100,
+                            width: 150,
+                            height: 150,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               border: Border.all(
