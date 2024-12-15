@@ -254,19 +254,6 @@ class Aboutpage extends StatelessWidget {
                               barRadius: Radius.circular(5),
                               padding: EdgeInsets.symmetric(vertical: 7.0),
                             ),
-                            Text(
-                              "Sql",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.9,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
                           ],
                         ),
                       ),
