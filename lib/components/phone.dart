@@ -75,24 +75,14 @@ class _PhoneMockupState extends State<PhoneMockup> {
             ),
           ),
           Positioned(
-            top: 10,
+            top: 8,
             right: 30,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Transform.rotate(
-                  angle: 90 * (3.14159265359 / 180),
-                  child: Icon(
-                    Icons.battery_6_bar_outlined,
-                    size: 25,
-                  ),
-                ),
-                // SizedBox(width: 1),
-                // Text(
-                //   '90%', // Show battery percentage
-                //   style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16),
-                // ),
-              ],
+            child: Transform.rotate(
+              angle: 90 * (3.14159265359 / 180),
+              child: Icon(
+                Icons.battery_6_bar_outlined,
+                size: 28,
+              ),
             ),
           ),
           Positioned(

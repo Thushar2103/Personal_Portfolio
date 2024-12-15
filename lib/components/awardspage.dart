@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Awardspage extends StatefulWidget {
-  const Awardspage({super.key});
+class Awardspage extends StatelessWidget {
+  Awardspage({super.key});
 
-  @override
-  State<Awardspage> createState() => _AwardspageState();
-}
-
-class _AwardspageState extends State<Awardspage> {
-  List<Map<String, dynamic>> listAward = [
+  final List<Map<String, dynamic>> listAward = [
     {
       'icon': Icons.directions_bike_rounded,
       'title': 'Start of Expedition',
@@ -140,33 +135,39 @@ class _AwardspageState extends State<Awardspage> {
                           ),
                         )),
                     ...listAward.map((award) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xFFD1F8E3),
-                            border: Border.all(width: 4),
-                            borderRadius: BorderRadius.circular(10)),
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 5,
+                      return Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xFFD1F8E3),
+                                border: Border.all(width: 4),
+                                borderRadius: BorderRadius.circular(10)),
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Icon(award['icon']),
+                                ListTile(
+                                  title: Text(
+                                    textAlign: TextAlign.center,
+                                    award['title'],
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text(
+                                    textAlign: TextAlign.justify,
+                                    award['content'],
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ],
                             ),
-                            Icon(award['icon']),
-                            ListTile(
-                              title: Text(
-                                textAlign: TextAlign.center,
-                                award['title'],
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              subtitle: Text(
-                                textAlign: TextAlign.justify,
-                                award['content'],
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(height: 10)
+                        ],
                       );
                     }),
                   ],

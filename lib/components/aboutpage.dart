@@ -139,7 +139,7 @@ class Aboutpage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           side: BorderSide(width: 4)),
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Text(
                           textAlign: TextAlign.justify,
                           "I'm a software tester with experience in Flutter development, building reliable, high-quality apps. When I'm not testing or coding, I enjoy travelling and finding new inspiration from different places.",
@@ -186,7 +186,7 @@ class Aboutpage extends StatelessWidget {
                             ),
                             LinearPercentIndicator(
                               lineHeight: 25,
-                              percent: 0.7, // 60% proficiency in Django
+                              percent: 0.7,
                               backgroundColor: Colors.grey[300]!,
                               progressColor: Colors.green,
                               barRadius: Radius.circular(5),
@@ -222,7 +222,7 @@ class Aboutpage extends StatelessWidget {
                             ),
                             LinearPercentIndicator(
                               lineHeight: 25,
-                              percent: 0.8,
+                              percent: 0.7,
                               backgroundColor: Colors.grey[300]!,
                               progressColor: Colors.green,
                               barRadius: Radius.circular(5),
@@ -248,7 +248,7 @@ class Aboutpage extends StatelessWidget {
                             ),
                             LinearPercentIndicator(
                               lineHeight: 25,
-                              percent: 0.7, // 60% proficiency in Django
+                              percent: 0.5,
                               backgroundColor: Colors.grey[300]!,
                               progressColor: Colors.green,
                               barRadius: Radius.circular(5),
@@ -261,7 +261,7 @@ class Aboutpage extends StatelessWidget {
                             ),
                             LinearPercentIndicator(
                               lineHeight: 25,
-                              percent: 0.9, // 60% proficiency in Django
+                              percent: 0.9,
                               backgroundColor: Colors.grey[300]!,
                               progressColor: Colors.green,
                               barRadius: Radius.circular(5),
