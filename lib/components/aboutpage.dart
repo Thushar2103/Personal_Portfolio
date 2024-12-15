@@ -275,6 +275,42 @@ class Aboutpage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
+                        "Database",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Card(
+                      color: Color(0xFFD1F8E3),
+                      shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(width: 4)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "MySql",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            LinearPercentIndicator(
+                              lineHeight: 25,
+                              percent: 0.9,
+                              backgroundColor: Colors.grey[300]!,
+                              progressColor: Colors.green,
+                              barRadius: Radius.circular(5),
+                              padding: EdgeInsets.symmetric(vertical: 7.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
                         "Others",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
