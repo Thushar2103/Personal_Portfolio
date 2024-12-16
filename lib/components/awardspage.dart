@@ -127,7 +127,7 @@ class Awardspage extends StatelessWidget {
                                   child: CircleAvatar(
                                     radius: 60, // Avatar size
                                     backgroundImage: AssetImage(
-                                        'image/record.jpg'), // Avatar image
+                                        'image/record.webp'), // Avatar image
                                   ),
                                 ),
                               )

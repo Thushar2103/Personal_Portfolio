@@ -23,7 +23,7 @@ class Landingpage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("image/wallpaper.jpg"), fit: BoxFit.cover)),
+              image: AssetImage("image/wallpaper.webp"), fit: BoxFit.cover)),
       child: Column(
         children: [
           SizedBox(

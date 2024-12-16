@@ -4,11 +4,11 @@ class Gallery extends StatelessWidget {
   Gallery({super.key});
 
   final List<String> imageUrls = [
-    'image/1.JPG',
-    'image/2.JPG',
-    'image/3.JPG',
-    'image/4.jpg',
-    'image/5.jpg',
+    'image/1.webp',
+    'image/2.webp',
+    'image/3.webp',
+    'image/4.webp',
+    'image/5.webp',
   ];
 
   @override
