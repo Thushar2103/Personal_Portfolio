@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 Uri nilam = Uri.parse('https://tascuit-nilam.onrender.com');
 Uri manage = Uri.parse('https://tascuit-manage.onrender.com');
+Uri webauto = Uri.parse('https://github.com/Thushar2103/web-automation');
 Uri expense = Uri.parse(
     'https://play.google.com/store/apps/details?id=com.tascuit.expense');
 Uri puzzle = Uri.parse('https://github.com/Thushar2103/Unsplash-Puzzle-Game');
@@ -16,6 +17,12 @@ class ProjectsPage extends StatelessWidget {
       'content':
           'Add and format text, images, and links using a simple editor, which automatically generates HTML for publishing.',
       'url': nilam
+    },
+    {
+      'title': 'WebAuto',
+      'content':
+          'A web automation tool that allows users to design workflows in a Flutter-based interface, save them as JSON, and execute tasks like navigation, loops, and interactions dynamically using Selenium.',
+      'url': webauto
     },
     {
       'title': 'Tascuit Expense',
