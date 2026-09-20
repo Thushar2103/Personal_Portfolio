@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import 'clock.dart';
 import 'aboutpage.dart';
@@ -76,7 +76,7 @@ class AppIconItem extends StatelessWidget {
         "colors": [Colors.orange[400]!, Colors.deepOrange[700]!]
       },
       {
-        "icon": FontAwesomeIcons.medal,
+        "icon": Icons.emoji_events,
         "name": "Awards",
         "screen": Awardspage(),
         "colors": [Colors.amber[400]!, Colors.orange[700]!]
@@ -88,7 +88,7 @@ class AppIconItem extends StatelessWidget {
         "colors": [Colors.purple[400]!, Colors.deepPurple[800]!]
       },
       {
-        "icon": FontAwesomeIcons.solidFilePdf,
+        "icon": Icons.picture_as_pdf,
         "name": "Resume",
         "url": resume,
         "colors": [Colors.teal[400]!, Colors.teal[800]!]
@@ -100,19 +100,19 @@ class AppIconItem extends StatelessWidget {
         "colors": [Colors.green[400]!, Colors.green[800]!]
       },
       {
-        "icon": FontAwesomeIcons.github,
+        "icon": Icons.code,
         "name": "Github",
         "url": github,
         "colors": [Colors.grey[700]!, Colors.black]
       },
       {
-        "icon": FontAwesomeIcons.linkedinIn,
+        "icon": Icons.work,
         "name": "LinkedIn",
         "url": linkedin,
         "colors": [Colors.lightBlue[400]!, Colors.blue[800]!]
       },
       {
-        "icon": FontAwesomeIcons.googlePlay,
+        "icon": Icons.shop,
         "name": "Play Store",
         "url": playstore,
         "colors": [Colors.red[400]!, Colors.blue[600]!]

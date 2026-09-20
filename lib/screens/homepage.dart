@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -102,13 +102,13 @@ class Homepage extends StatelessWidget {
                   IconButton(
                     iconSize: 28,
                     onPressed: () => _launchUrl(github),
-                    icon: const Icon(FontAwesomeIcons.github, color: Colors.white),
+                    icon: const Icon(Icons.code, color: Colors.white),
                   ),
                   const SizedBox(width: 8),
                   IconButton(
                     iconSize: 28,
                     onPressed: () => _launchUrl(linkedin),
-                    icon: Icon(FontAwesomeIcons.linkedin, color: Colors.tealAccent[400]),
+                    icon: Icon(Icons.work, color: Colors.tealAccent[400]),
                   )
                 ],
               ),
