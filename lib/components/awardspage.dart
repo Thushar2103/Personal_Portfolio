@@ -35,146 +35,194 @@ class Awardspage extends StatelessWidget {
     },
   ];
 
+  Widget _buildCard({required Widget child}) {
+    return Card(
+      color: Colors.white.withOpacity(0.05),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.white.withOpacity(0.1), width: 1),
+      ),
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: child,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.white),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            SizedBox(height: 30),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.arrow_back_ios_new),
-                  ),
-                ),
-                Align(
-                  heightFactor: 1.5,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Awards',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
-                child: Column(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF0F2027),
+              Color(0xFF203A43),
+              Color(0xFF2C5364),
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Custom AppBar
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                child: Row(
                   children: [
-                    Text(
-                      'India Book Of Records',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
                     ),
-                    SizedBox(
-                        width: double.maxFinite,
-                        height: 230,
-                        child: Card(
-                          elevation: 0,
-                          color: Colors.transparent,
-                          child: Stack(
-                            children: [
-                              SizedBox(
-                                  width: double.maxFinite,
-                                  height: 150,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(width: 4),
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.blue,
-                                          Colors.purple
-                                        ], // Define the gradient colors
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(
-                                          10), // Matches card's border radius
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
-                                      child: Text(
-                                        textAlign: TextAlign.justify,
-                                        'Maximum Indian states and union territories covered by a teen in a solo roundtrip motorcycle expedition',
-                                        style: TextStyle(
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    ),
-                                  )),
-                              Align(
-                                alignment: AlignmentDirectional.bottomCenter,
-                                child: Container(
-                                  width: 160,
-                                  height: 160,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 4,
-                                    ),
-                                  ),
-                                  child: CircleAvatar(
-                                    radius: 60, // Avatar size
-                                    backgroundImage: AssetImage(
-                                        'image/record.webp'), // Avatar image
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )),
-                    ...listAward.map((award) {
-                      return Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Color(0xFFD1F8E3),
-                                border: Border.all(width: 4),
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Icon(award['icon']),
-                                ListTile(
-                                  title: Text(
-                                    textAlign: TextAlign.center,
-                                    award['title'],
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Text(
-                                    textAlign: TextAlign.justify,
-                                    award['content'],
-                                    style: TextStyle(fontSize: 14),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 10)
-                        ],
-                      );
-                    }),
+                    const Expanded(
+                      child: Text(
+                        'Awards',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 48), // Balance the back button
                   ],
                 ),
               ),
-            )
-          ],
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'India Book Of Records',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 22,
+                          color: Colors.white,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 230,
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Colors.blue[800]!, Colors.purple[700]!],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
+                                borderRadius: BorderRadius.circular(16),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.purple.withOpacity(0.3),
+                                    blurRadius: 15,
+                                    offset: const Offset(0, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Text(
+                                  'Maximum Indian states and union territories covered by a teen in a solo roundtrip motorcycle expedition',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Container(
+                                width: 140,
+                                height: 140,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.tealAccent[400]!,
+                                    width: 3,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.tealAccent[400]!.withOpacity(0.3),
+                                      blurRadius: 15,
+                                      spreadRadius: 2,
+                                    )
+                                  ],
+                                ),
+                                child: const CircleAvatar(
+                                  radius: 65,
+                                  backgroundImage: AssetImage('image/record.webp'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      ...listAward.map((award) {
+                        return _buildCard(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.tealAccent[400]!.withOpacity(0.1),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  award['icon'],
+                                  color: Colors.tealAccent[400],
+                                  size: 32,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                award['title'],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                award['content'],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white70,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

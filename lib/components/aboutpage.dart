@@ -4,376 +4,243 @@ import 'package:percent_indicator/percent_indicator.dart';
 class Aboutpage extends StatelessWidget {
   const Aboutpage({super.key});
 
-  Widget info() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Name:",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+  Widget _buildSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 4, top: 16, bottom: 8),
+      child: Text(
+        title.toUpperCase(),
+        style: TextStyle(
+          color: Colors.tealAccent[400],
+          fontSize: 14,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 1.5,
         ),
-        Text(
-          "Thushar",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        Text(
-          "Email:",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-        ),
-        Text(
-          "tthushar2004@gmail.com",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )
-      ],
+      ),
+    );
+  }
+
+  Widget _buildCard({required Widget child}) {
+    return Card(
+      color: Colors.white.withOpacity(0.05),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.white.withOpacity(0.1), width: 1),
+      ),
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: child,
+      ),
+    );
+  }
+
+  Widget _buildSkill(String name, double percent) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            name,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+          LinearPercentIndicator(
+            lineHeight: 8,
+            percent: percent,
+            backgroundColor: Colors.white.withOpacity(0.1),
+            progressColor: Colors.tealAccent[400],
+            barRadius: const Radius.circular(10),
+            padding: EdgeInsets.zero,
+            animation: true,
+            animationDuration: 1000,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProfileHeader() {
+    return _buildCard(
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.tealAccent[400]!, width: 2),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.tealAccent[400]!.withOpacity(0.2),
+                  blurRadius: 15,
+                  spreadRadius: 2,
+                )
+              ],
+            ),
+            child: const CircleAvatar(
+              radius: 40,
+              backgroundImage: AssetImage('image/me.webp'),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Thushar",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                const Text(
+                  "Software Tester & Dev",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    Icon(Icons.email, color: Colors.tealAccent[400], size: 14),
+                    const SizedBox(width: 8),
+                    const Expanded(
+                      child: Text(
+                        "tthushar2004@gmail.com",
+                        style: TextStyle(color: Colors.white70, fontSize: 13),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.arrow_back_ios_new),
-                  ),
-                ),
-                Align(
-                  heightFactor: 1.5,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'About',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+    return Scaffold(
+      backgroundColor: Colors
+          .transparent, // Inherit gradient if possible, but let's provide our own below
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF0F2027),
+              Color(0xFF203A43),
+              Color(0xFF2C5364),
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Custom AppBar
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                child: Row(
                   children: [
-                    SizedBox(height: 18),
-                    Container(
-                      width: double.maxFinite,
-                      height: 150,
-                      color: Colors.transparent,
-                      child: Stack(children: [
-                        Card(
-                          margin: EdgeInsets.only(
-                              right: 70, top: 10, left: 5, bottom: 10),
-                          shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              side: BorderSide(width: 4)),
-                          color: Colors.amber,
-                          child: SizedBox(
-                            width: double.maxFinite,
-                            height: 150,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Expanded(
-                                    child: info(),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional.centerEnd,
-                          child: Container(
-                            width: 150,
-                            height: 150,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 4,
-                              ),
-                            ),
-                            child: CircleAvatar(
-                              radius: 46,
-                              backgroundImage: AssetImage('image/me.webp'),
-                            ),
-                          ),
-                        )
-                      ]),
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back_ios_new,
+                          color: Colors.white),
                     ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                    const Expanded(
                       child: Text(
-                        "About Me",
+                        'About Me',
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Card(
-                      color: Color(0xFFD1F8E3),
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(width: 4)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          textAlign: TextAlign.justify,
-                          "I'm a software tester with experience in Flutter development, building reliable, high-quality apps. When I'm not testing or coding, I enjoy travelling and finding new inspiration from different places.",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Development Tools/\nFrameworks",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Card(
-                      color: Color(0xFFD1F8E3),
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(width: 4)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Flutter",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.8,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Django",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.7,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Programming Languages",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Card(
-                      color: Color(0xFFD1F8E3),
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(width: 4)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Dart",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.7,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Python",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.7,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Java",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.5,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Database",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Card(
-                      color: Color(0xFFD1F8E3),
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(width: 4)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "MySql",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.9,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Others",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Card(
-                      shape: ContinuousRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          side: BorderSide(width: 4)),
-                      color: Color(0xFFD1F8E3),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Selenium",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.8,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Appium",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.8,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Manual Testing",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.8,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                            Text(
-                              "Git",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            LinearPercentIndicator(
-                              lineHeight: 25,
-                              percent: 0.7,
-                              backgroundColor: Colors.grey[300]!,
-                              progressColor: Colors.green,
-                              barRadius: Radius.circular(5),
-                              padding: EdgeInsets.symmetric(vertical: 7.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    const SizedBox(width: 48), // Balance the back button
                   ],
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildProfileHeader(),
+                      _buildSectionTitle("Biography"),
+                      _buildCard(
+                        child: const Text(
+                          "I'm a software tester with experience in Flutter development, building reliable, high-quality apps. When I'm not testing or coding, I enjoy travelling and finding new inspiration from different places.",
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 15,
+                            height: 1.5,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                      _buildSectionTitle("Dev Tools / Frameworks"),
+                      _buildCard(
+                        child: Column(
+                          children: [
+                            _buildSkill("Flutter", 0.8),
+                            _buildSkill("Django", 0.7),
+                          ],
+                        ),
+                      ),
+                      _buildSectionTitle("Programming Languages"),
+                      _buildCard(
+                        child: Column(
+                          children: [
+                            _buildSkill("Dart", 0.7),
+                            _buildSkill("Python", 0.7),
+                            _buildSkill("Java", 0.5),
+                          ],
+                        ),
+                      ),
+                      _buildSectionTitle("Database"),
+                      _buildCard(
+                        child: Column(
+                          children: [
+                            _buildSkill("MySql", 0.9),
+                          ],
+                        ),
+                      ),
+                      _buildSectionTitle("Others"),
+                      _buildCard(
+                        child: Column(
+                          children: [
+                            _buildSkill("Selenium", 0.8),
+                            _buildSkill("Appium", 0.8),
+                            _buildSkill("Manual Testing", 0.8),
+                            _buildSkill("Git", 0.7),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

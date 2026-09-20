@@ -46,93 +46,121 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.arrow_back_ios_new),
-                  ),
-                ),
-                Align(
-                  heightFactor: 1.5,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Projects',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFF0F2027),
+              Color(0xFF203A43),
+              Color(0xFF2C5364),
+            ],
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Custom AppBar
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back_ios_new,
+                          color: Colors.white),
                     ),
-                  ),
+                    const Expanded(
+                      child: Text(
+                        'Projects',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 48), // To balance the back button
+                  ],
                 ),
-              ],
-            ),
-            Expanded(
-              child: GridView.builder(
-                physics: ClampingScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.8,
-                    crossAxisCount: 1,
-                    crossAxisSpacing: 0),
-                itemCount: projects.length,
-                itemBuilder: (context, index) {
-                  final project = projects[index];
+              ),
+              Expanded(
+                child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(20.0),
+                  itemCount: projects.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
+                  itemBuilder: (context, index) {
+                    final project = projects[index];
 
-                  return Card(
-                    color: Color(0xFFD1F8E3),
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 4),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            project['title']!,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w900,
+                    return Card(
+                      color: Colors.white.withOpacity(0.05),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                            color: Colors.white.withOpacity(0.1), width: 1),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              project['title']!,
+                              style: TextStyle(
+                                color: Colors.tealAccent[400],
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            textAlign: TextAlign.justify,
-                            project['content']!,
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500),
-                          ),
-                          Spacer(),
-                          SizedBox(
-                            width: double.maxFinite,
-                            child: ElevatedButton(
+                            const SizedBox(height: 12),
+                            Text(
+                              project['content']!,
+                              textAlign: TextAlign.justify,
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 14,
+                                height: 1.5,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 45,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.tealAccent[400],
+                                  foregroundColor: Colors.black,
+                                  elevation: 2,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
                                 onPressed: () {
                                   launchUrl(project['url']);
                                 },
-                                child: Text('Visit Site')),
-                          ),
-                          Spacer(),
-                        ],
+                                child: const Text(
+                                  'Visit Site',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

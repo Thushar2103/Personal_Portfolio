@@ -30,10 +30,6 @@ class Landingpage extends StatelessWidget {
             height: 80,
           ),
           SizedBox(height: 200, child: DigitalClockCard()),
-          Text(
-            'Clock Widget',
-            style: TextStyle(fontWeight: FontWeight.w900),
-          ),
           Flexible(
             child: GridView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -41,6 +37,7 @@ class Landingpage extends StatelessWidget {
                 crossAxisCount: 4,
                 crossAxisSpacing: 0,
                 mainAxisSpacing: 20,
+                childAspectRatio: 0.75,
               ),
               itemCount: 9,
               itemBuilder: (context, index) {
@@ -64,27 +61,62 @@ class AppIconItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List of app icons and names
+    // List of app icons and names with individual gradient colors
     List<Map<String, dynamic>> appData = [
-      {"icon": Icons.person, "name": "About", "screen": Aboutpage()},
-      {"icon": Icons.edit, "name": "Projects", "screen": ProjectsPage()},
+      {
+        "icon": Icons.person,
+        "name": "About",
+        "screen": Aboutpage(),
+        "colors": [Colors.blue[400]!, Colors.blue[800]!]
+      },
+      {
+        "icon": Icons.edit,
+        "name": "Projects",
+        "screen": ProjectsPage(),
+        "colors": [Colors.orange[400]!, Colors.deepOrange[700]!]
+      },
       {
         "icon": FontAwesomeIcons.medal,
         "name": "Awards",
-        "screen": Awardspage()
+        "screen": Awardspage(),
+        "colors": [Colors.amber[400]!, Colors.orange[700]!]
       },
-      {"icon": Icons.photo, "name": "Gallery", "screen": Gallery()},
-      {"icon": FontAwesomeIcons.file, "name": "Resume", "url": resume},
-      {"icon": Icons.contact_mail_rounded, "name": "Contact", "url": contact},
-      {"icon": FontAwesomeIcons.github, "name": "Github", "url": github},
-      {"icon": FontAwesomeIcons.linkedin, "name": "LinkedIn", "url": linkedin},
-      // {"icon": Icons.phone_android, "name": "Device", "screen": Devicepage()},
+      {
+        "icon": Icons.photo_library,
+        "name": "Gallery",
+        "screen": Gallery(),
+        "colors": [Colors.purple[400]!, Colors.deepPurple[800]!]
+      },
+      {
+        "icon": FontAwesomeIcons.solidFilePdf,
+        "name": "Resume",
+        "url": resume,
+        "colors": [Colors.teal[400]!, Colors.teal[800]!]
+      },
+      {
+        "icon": Icons.contact_mail_rounded,
+        "name": "Contact",
+        "url": contact,
+        "colors": [Colors.green[400]!, Colors.green[800]!]
+      },
+      {
+        "icon": FontAwesomeIcons.github,
+        "name": "Github",
+        "url": github,
+        "colors": [Colors.grey[700]!, Colors.black]
+      },
+      {
+        "icon": FontAwesomeIcons.linkedinIn,
+        "name": "LinkedIn",
+        "url": linkedin,
+        "colors": [Colors.lightBlue[400]!, Colors.blue[800]!]
+      },
       {
         "icon": FontAwesomeIcons.googlePlay,
         "name": "Play Store",
-        "url": playstore
+        "url": playstore,
+        "colors": [Colors.red[400]!, Colors.blue[600]!]
       },
-      // {"icon": FontAwesomeIcons.medal, "name": "Awards", "screen": Aboutpage()},
     ];
 
     // Get the icon and name based on the index
@@ -114,22 +146,50 @@ class AppIconItem extends StatelessWidget {
         children: [
           MouseRegion(
             cursor: SystemMouseCursors.click,
-            child: Card(
-              color: Color(0xFFD1C4E9),
-              child: Padding(
-                padding: EdgeInsets.all(6),
+            child: Container(
+              height: 65,
+              width: 65,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: app["colors"],
+                ),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: app["colors"][1].withOpacity(0.5),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  )
+                ],
+              ),
+              child: Center(
                 child: Icon(
                   app["icon"],
-                  size: 50,
+                  size: 30,
+                  color: Colors.white,
                 ),
               ),
             ),
           ),
+          const SizedBox(height: 6),
           Text(
             app["name"],
+            textAlign: TextAlign.center,
             softWrap: true,
             style: TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w900, color: Colors.black),
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.8),
+                  blurRadius: 4,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
           ),
         ],
       ),

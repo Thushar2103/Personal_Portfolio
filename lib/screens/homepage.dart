@@ -71,9 +71,9 @@ class Homepage extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF1C2B36),
-                Color(0xFF3E4A61),
-                Color(0xFF5F6383),
+                Color(0xFF0F2027),
+                Color(0xFF203A43),
+                Color(0xFF2C5364),
               ],
             ),
           ),
@@ -81,22 +81,37 @@ class Homepage extends StatelessWidget {
           child: isMobile ? phone() : pc()),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: !isMobile
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                    iconSize: 35,
+          ? Container(
+              margin: const EdgeInsets.only(bottom: 20, right: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.05),
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: Colors.white.withOpacity(0.1)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  )
+                ],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    iconSize: 28,
                     onPressed: () => _launchUrl(github),
-                    icon: Icon(
-                      FontAwesomeIcons.github,
-                      color: Colors.black,
-                    )),
-                IconButton(
-                    iconSize: 35,
+                    icon: const Icon(FontAwesomeIcons.github, color: Colors.white),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    iconSize: 28,
                     onPressed: () => _launchUrl(linkedin),
-                    icon: Icon(FontAwesomeIcons.linkedin, color: Colors.blue))
-              ],
+                    icon: Icon(FontAwesomeIcons.linkedin, color: Colors.tealAccent[400]),
+                  )
+                ],
+              ),
             )
           : null,
     );

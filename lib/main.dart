@@ -18,10 +18,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.green),
+                    backgroundColor: WidgetStatePropertyAll(Colors.tealAccent[400]),
                     foregroundColor: WidgetStatePropertyAll(Colors.black),
+                    elevation: WidgetStatePropertyAll(2),
                     shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)))))),
+                        borderRadius: BorderRadius.circular(8)))))),
         home: Homepage());
   }
 }
